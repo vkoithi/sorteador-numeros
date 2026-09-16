@@ -1,0 +1,42 @@
+.title {
+    & span {
+        font: var(--overline);
+        text-transform: uppercase;
+        color: var(--content-primary);
+    }
+
+    h1 {
+        font: var(--display-large);
+        text-transform: uppercase;
+        color: var(--content-primary);
+        max-width: 620px;
+        margin-bottom: 3rem;
+    }
+}
+
+section {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+
+    & > p:nth-child(2) {
+        font: var(--paragraph-small);
+        color: var(--content-secondary);
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .question {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        & p { 
+            font: var(--paragraph-medium);
+            color: var(--accent-pink);
+        }
+    }
+}
+

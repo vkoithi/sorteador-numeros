@@ -1,0 +1,86 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --content-primary: #FFFFFF;
+    --content-secondary: #C7C9CC;
+    --content-tertiary: #D9D9D9;
+    --content-brand: #C58DE7;
+    --color-inverse: #030203;
+
+    --background-primary: #020202;
+    --background-secondary: #111012;
+    --background-tertiary: #24222E;
+    --background-brand: #C58DE7;
+    --background-gray: #3D3D3D;
+
+    --accent-pink: #D586E0;
+    --accent-blue: #91A1FA;
+    --accent-green: #77AC0A;
+    --accent-lime: #D1DC97;
+    --accent-red: #E9A9B3;
+
+    --gradient-border: linear-gradient(90deg,
+        #77C0AF 0%,
+        #D1DC97 14.84%,
+        #E9A9B3 32.15%,
+        #D586E0 65.79%,
+        #91A1FA 84.58%
+    );
+
+    --gradient-background: linear-gradient(90deg, 
+        #D586E0 0%, 
+        #91A1FA 98.93%
+    );
+
+    --gradient-content: linear-gradient(90deg, 
+        #C7C9CC 0%, 
+        #3D3D3D 100%
+    );
+
+    --display-large: 800 4.5rem/130% "Sora", sans-serif;
+    --display-medium: 800 2.5rem/130% "Sora", sans-serif;
+    --display-small: bold 2rem/130% "Sora", sans-serif;
+
+    --overline: bold 1rem/150%  "Roboto Mono", sans-serif;
+
+    --paragraph-large: 500 1rem/150% "Roboto Flex", sans-serif;
+    --paragraph-medium: 500 0.875rem/150% "Roboto Flex", sans-serif;
+    --paragraph-small: 500 0.750rem/150% "Roboto Flex", sans-serif;
+    --label-medium: bold 1.25rem/150% "Roboto Flex", sans-serif;
+    --label-small: bold 1rem/150% "Roboto Flex", sans-serif;
+}
+
+html {
+    padding: 1rem;
+    background-image: url(../assets/Background.png);
+    background-color: var(--background-primary);
+}
+
+header {
+    display: flex;
+    justify-content: start;
+    max-width: 1300px;
+    margin-inline: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6.75rem;
+    margin-inline: auto;
+    max-width: 1300px;
+}
+
+@media (max-width: 48rem) {
+    main {
+        gap: 2rem;
+        grid-template-columns: 1fr;
+    }
+}
+

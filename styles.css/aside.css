@@ -1,0 +1,242 @@
+aside {
+    /* Título */
+
+    & h2 {
+        padding-top: 2.5rem;
+
+        font: var(--label-medium);
+        color: var(--content-primary);
+
+        text-transform: uppercase;
+    }
+
+    /* Descrição */
+
+    & > p {
+        font: var(--paragraph-large);
+        color: var(--content-secondary);
+
+        margin-bottom: 2.5rem;
+    }
+
+    /* Formulário */
+
+    & form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Grupo dos campos numéricos */
+
+    & .wrap-number {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        gap: clamp(0.5rem, 2vw, 2rem);
+    }
+
+    /* Rótulos dos campos numéricos */
+
+    & .wrap-number label {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 86px;
+        min-width: 0;
+
+        font: var(--label-small);
+        color: var(--content-secondary);
+
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    /* Inputs numéricos */
+
+    & .wrap-number input {
+        width: 100%;
+        height: 56px;
+
+        margin-top: 0.5rem;
+
+        border: none;
+        border-radius: 10px;
+
+        background-color: var(--background-secondary);
+
+        font: var(--display-small);
+        color: var(--content-primary);
+
+        text-align: center;
+        outline: none;
+    }
+
+    /* Foco nos campos numéricos */
+
+    & .wrap-number input:focus {
+        outline: 2px solid var(--content-brand);
+        outline-offset: 2px;
+    }
+
+    /* Remove as setas dos inputs no Chrome e Edge */
+
+    & input[type="number"]::-webkit-inner-spin-button,
+    & input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Remove as setas dos inputs no Firefox */
+
+    & input[type="number"] {
+        appearance: textfield;
+    }
+
+    /* Toggle */
+
+    & #switch {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 1rem;
+        margin-top: 2rem;
+
+        cursor: pointer;
+    }
+
+    /* Trilho do toggle */
+
+    & #switch input {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        appearance: none;
+
+        width: 40px;
+        height: 20px;
+
+        padding: 3px;
+
+        background-color: var(--content-tertiary);
+
+        border: none;
+        border-radius: 15px;
+
+        cursor: pointer;
+
+        transition: background-color 0.2s;
+    }
+
+    /* Bolinha do toggle */
+
+    & #switch input::before {
+        content: "";
+
+        display: block;
+        flex-shrink: 0;
+
+        width: 14px;
+        height: 14px;
+
+        background-color: var(--content-primary);
+
+        border-radius: 50%;
+
+        transition: transform 0.2s;
+    }
+
+    /* Movimentação da bolinha */
+
+    & #switch input:checked::before {
+        transform: translateX(20px);
+    }
+
+    /* Toggle ativado */
+
+    & #switch input:checked {
+        background: var(--gradient-background);
+    }
+
+    /* Foco no toggle */
+
+    & #switch input:focus-visible {
+        outline: 2px solid var(--accent-blue);
+        outline-offset: 3px;
+    }
+
+    /* Texto do toggle */
+
+    & #switch span {
+        font: var(--paragraph-small);
+        color: var(--content-primary);
+
+        text-transform: none;
+        text-align: start;
+    }
+
+    /* Botão Sortear */
+
+    & #draw {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 1rem;
+
+        width: 100%;
+        height: 50px;
+
+        margin-top: 4rem;
+        padding: 0 1rem;
+
+        border: none;
+        border-radius: 5px;
+
+        background-color: var(--background-secondary);
+
+        font: var(--label-small);
+        color: var(--content-primary);
+
+        text-transform: uppercase;
+
+        cursor: pointer;
+
+        transition: background-color 0.2s;
+    }
+
+    /* Ícone do botão */
+
+    & #draw img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Interação com o botão */
+
+    & #draw:hover {
+        background-color: var(--background-tertiary);
+    }
+
+    & #draw:focus-visible {
+        outline: 2px solid var(--content-brand);
+        outline-offset: 3px;
+    }
+}
+
+/* Responsividade */
+
+@media (max-width: 48rem) {
+    aside {
+        & h2 {
+            padding-top: 1rem;
+        }
+
+        & #draw {
+            margin-top: 2.5rem;
+        }
+    }
+}

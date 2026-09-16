@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;700&family=Roboto+Mono:wght@700&family=Sora:wght@700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css/index.css">
+
+    <title>Sorteador de Números</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo.svg" alt="Logo do sorteador">
+    </header>
+
+    <main>
+        <div class="wrap">
+            <div class="title">
+                <span>Online - Gratuito</span>
+                <h1>Sorteador de Números</h1>
+            </div>
+
+            <section>
+                <div class="question">
+                    <img src="assets/Icons/Frame-2.svg" alt="">
+
+                    <p>Como funciona o sorteador de números?</p>
+                </div>
+
+                <p>
+                    O sorteador utiliza um algoritmo de geração aleatória
+                    para criar números dentro do intervalo especificado
+                    pelo usuário.
+                </p>
+            </section>
+
+            <section>
+                <div class="question">
+                    <img src="assets/Icons/Frame-2.svg" alt="">
+
+                    <p>Posso escolher o intervalo dos números?</p>
+                </div>
+
+                <p>
+                    Sim, você pode definir os valores mínimo e máximo
+                    para o intervalo dos números sorteados.
+                </p>
+            </section>
+        </div>
+
+        <aside>
+            <h2>Quero sortear:</h2>
+
+            <p>
+                Defina o intervalo e a quantidade de números, clique
+                em "Sortear" e veja os resultados na tela.
+                É rápido e fácil!
+            </p>
+
+            <form>
+                <div class="wrap-number">
+                    <label for="quantity">
+                        Números
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            name="quantity"
+                            min="1"
+                            step="1"
+                            required
+                        >
+                    </label>
+
+                    <label for="minimum">
+                        De
+
+                        <input
+                            type="number"
+                            id="minimum"
+                            name="minimum"
+                            step="1"
+                            required
+                        >
+                    </label>
+
+                    <label for="maximum">
+                        Até
+
+                        <input
+                            type="number"
+                            id="maximum"
+                            name="maximum"
+                            step="1"
+                            required
+                        >
+                    </label>
+                </div>
+
+                <label id="switch">
+                    <input
+                        type="checkbox"
+                        id="no-repeat"
+                        name="no-repeat"
+                    >
+
+                    <span>Não repetir número</span>
+                </label>
+
+                <button type="submit" id="draw">
+                    Sortear
+
+                    <img
+                        src="assets/Icons/Frame-1.svg"
+                        alt=""
+                    >
+                </button>
+            </form>
+        </aside>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
