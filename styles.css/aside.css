@@ -6,7 +6,6 @@ aside {
 
         font: var(--label-medium);
         color: var(--content-primary);
-
         text-transform: uppercase;
     }
 
@@ -36,7 +35,7 @@ aside {
         gap: clamp(0.5rem, 2vw, 2rem);
     }
 
-    /* Rótulos dos campos numéricos */
+    /* Labels dos campos numéricos */
 
     & .wrap-number label {
         display: flex;
@@ -47,8 +46,8 @@ aside {
         font: var(--label-small);
         color: var(--content-secondary);
 
-        text-transform: uppercase;
         text-align: center;
+        text-transform: uppercase;
     }
 
     /* Inputs numéricos */
@@ -59,10 +58,10 @@ aside {
 
         margin-top: 0.5rem;
 
-        border: none;
+        border: 1px solid transparent;
         border-radius: 10px;
 
-        background-color: var(--background-secondary);
+        background: var(--background-secondary);
 
         font: var(--display-small);
         color: var(--content-primary);
@@ -71,14 +70,7 @@ aside {
         outline: none;
     }
 
-    /* Foco nos campos numéricos */
-
-    & .wrap-number input:focus {
-        outline: 2px solid var(--content-brand);
-        outline-offset: 2px;
-    }
-
-    /* Remove as setas dos inputs no Chrome e Edge */
+    /* Remove as setas no Chrome, Edge e Brave */
 
     & input[type="number"]::-webkit-inner-spin-button,
     & input[type="number"]::-webkit-outer-spin-button {
@@ -86,7 +78,7 @@ aside {
         margin: 0;
     }
 
-    /* Remove as setas dos inputs no Firefox */
+    /* Remove as setas no Firefox */
 
     & input[type="number"] {
         appearance: textfield;
@@ -120,14 +112,12 @@ aside {
 
         padding: 3px;
 
-        background-color: var(--content-tertiary);
-
         border: none;
         border-radius: 15px;
 
-        cursor: pointer;
+        background-color: var(--content-tertiary);
 
-        transition: background-color 0.2s;
+        cursor: pointer;
     }
 
     /* Bolinha do toggle */
@@ -141,17 +131,11 @@ aside {
         width: 14px;
         height: 14px;
 
-        background-color: var(--content-primary);
-
         border-radius: 50%;
 
-        transition: transform 0.2s;
-    }
+        background-color: var(--content-primary);
 
-    /* Movimentação da bolinha */
-
-    & #switch input:checked::before {
-        transform: translateX(20px);
+        transition: transform 0.2s ease;
     }
 
     /* Toggle ativado */
@@ -160,11 +144,8 @@ aside {
         background: var(--gradient-background);
     }
 
-    /* Foco no toggle */
-
-    & #switch input:focus-visible {
-        outline: 2px solid var(--accent-blue);
-        outline-offset: 3px;
+    & #switch input:checked::before {
+        transform: translateX(20px);
     }
 
     /* Texto do toggle */
@@ -173,19 +154,16 @@ aside {
         font: var(--paragraph-small);
         color: var(--content-primary);
 
-        text-transform: none;
         text-align: start;
+        text-transform: none;
     }
 
     /* Botão Sortear */
 
     & #draw {
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: center;
-
-        gap: 1rem;
 
         width: 100%;
         height: 50px;
@@ -205,7 +183,24 @@ aside {
 
         cursor: pointer;
 
-        transition: background-color 0.2s;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+
+        transition: background-color 0.2s ease;
+    }
+
+    /* Conteúdo do botão */
+
+    & #draw .draw-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 1rem;
+
+        position: relative;
+        z-index: 2;
     }
 
     /* Ícone do botão */
@@ -215,15 +210,10 @@ aside {
         height: 20px;
     }
 
-    /* Interação com o botão */
+    /* Hover do botão */
 
     & #draw:hover {
         background-color: var(--background-tertiary);
-    }
-
-    & #draw:focus-visible {
-        outline: 2px solid var(--content-brand);
-        outline-offset: 3px;
     }
 }
 

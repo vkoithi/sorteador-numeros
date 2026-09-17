@@ -23,7 +23,7 @@
     --accent-lime: #D1DC97;
     --accent-red: #E9A9B3;
 
-    --gradient-border: linear-gradient(90deg,
+    --gradient-border: conic-gradient(from 90deg,
         #77C0AF 0%,
         #D1DC97 14.84%,
         #E9A9B3 32.15%,

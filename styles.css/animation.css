@@ -1,0 +1,167 @@
+
+#draw.drawing {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    /* Gradiente giratório */
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 250%;
+        aspect-ratio: 1;
+
+        background: var(--gradient-border);
+
+        animation: moverBorda 2s linear infinite;
+
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Fundo interno do botão */
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        inset: 2px;
+
+        background-color: var(--background-secondary);
+        border-radius: 3px;
+
+        transition: background-color 0.2s ease;
+
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Mantém a cor do fundo durante o hover */
+
+    &:hover::after {
+        background-color: var(--background-tertiary);
+    }
+
+    /* Mantém o texto e a seta acima das camadas */
+
+    & .draw-content {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* Rotação do gradiente */
+
+@keyframes moverBorda {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.wrap-number {
+    --input-border-gradient: linear-gradient(
+        90deg,
+        #77C0AF 0%,
+        #D1DC97 14.84%,
+        #E9A9B3 32.15%,
+        #D586E0 65.79%,
+        #91A1FA 84.58%
+    );
+}
+
+/* Hover dos inputs */
+
+.wrap-number input:hover {
+    background:
+        linear-gradient(
+            var(--background-tertiary),
+            var(--background-tertiary)
+        ) padding-box,
+        var(--input-border-gradient) border-box;
+}
+
+/* Foco dos inputs */
+
+.wrap-number input:focus {
+    background:
+        linear-gradient(
+            var(--background-tertiary),
+            var(--background-tertiary)
+        ) padding-box,
+        var(--input-border-gradient) border-box;
+
+    outline: none;
+}
+
+/* Cor do label durante o hover */
+
+.wrap-number label:hover {
+    color: var(--content-brand);
+}
+
+/* Cor do label quando o input recebe foco */
+
+.wrap-number label:focus-within {
+    color: var(--content-brand);
+}
+
+
+/* ========================================
+   ANIMAÇÃO DOS LABELS DURANTE O SORTEIO
+======================================== */
+
+/* Brilho suave nos textos NÚMEROS, DE e ATÉ */
+
+form:has(#draw.drawing) .wrap-number label > span {
+    color: var(--content-brand);
+
+    animation: brilhoLabel 2s ease-in-out infinite;
+}
+
+/* Animação do brilho */
+
+@keyframes brilhoLabel {
+    0%, 100% {
+        text-shadow: 0 0 0 transparent;
+    }
+
+    50% {
+        text-shadow: 0 0 8px var(--content-brand);
+    }
+}
+
+/* Foco visível no toggle */
+
+#switch input:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 3px;
+}
+
+/* Foco visível no botão */
+
+#draw:focus-visible {
+    outline: 2px solid var(--content-brand);
+    outline-offset: 3px;
+}
+
+/* Redução de movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    #draw.drawing::before,
+    form:has(#draw.drawing) .wrap-number label > span {
+        animation: none;
+    }
+
+    #switch input::before {
+        transition: none;
+    }
+}
