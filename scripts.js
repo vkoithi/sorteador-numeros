@@ -25,9 +25,18 @@ form.onsubmit = (event) => {
         return
     }
 
-    Math.floor(Math.random()* 4) + 1
+    const drawnNumbers = [] 
+    
+    while (drawnNumbers.length < quantityValue) { 
+        const randomNumber = Math.floor(Math.random() * availableNumbers) + minimumInput 
+        
+        if (noRepeat.checked && drawnNumbers.includes(randomNumber)) { 
+            continue 
+        } 
 
-    const randomNumber
+        drawnNumbers.push(randomNumber) 
+        console.log(drawnNumbers)
+    }
 
     draw.classList.add("drawing")
 }
