@@ -45,7 +45,7 @@ O projeto também conta com um contador que identifica a sequência dos sorteios
 
 O desenvolvimento teve como objetivo colocar em prática conceitos de JavaScript e transformar um layout do Figma em uma interface funcional e responsiva.
 
-[Acesse o projeto finalizado, online](COLE_AQUI_O_LINK_DO_PROJETO)
+[Acesse o projeto finalizado, online](https://vkoithi.github.io/sorteador-numeros/)
 
 ## ✨ Funcionalidades
 
