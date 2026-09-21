@@ -6,7 +6,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;700&family=Roboto+Mono:wght@700&family=Sora:wght@700;800&display=swap"
         rel="stylesheet"
@@ -32,7 +31,6 @@
             <section>
                 <div class="question">
                     <img src="assets/Icons/Frame-2.svg" alt="">
-
                     <p>Como funciona o sorteador de números?</p>
                 </div>
 
@@ -46,7 +44,6 @@
             <section>
                 <div class="question">
                     <img src="assets/Icons/Frame-2.svg" alt="">
-
                     <p>Posso escolher o intervalo dos números?</p>
                 </div>
 
@@ -58,74 +55,79 @@
         </div>
 
         <aside>
-            <h2>Quero sortear:</h2>
+            <div class="form-content">
+                <h2>Quero sortear:</h2>
 
-            <p>
-                Defina o intervalo e a quantidade de números, clique
-                em "Sortear" e veja os resultados na tela.
-                É rápido e fácil!
-            </p>
+                <p>
+                    Defina o intervalo e a quantidade de números,
+                    clique em "Sortear" e veja os resultados na tela.
+                </p>
 
-            <form>
-                <div class="wrap-number">
-                    <label for="quantity">
-                        <span>Números</span>
+                <form>
+                    <div class="wrap-number">
+                        <label for="quantity">
+                            <span>Números</span>
+                            <input
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                min="1"
+                                step="1"
+                                required
+                            >
+                        </label>
 
+                        <label for="minimum">
+                            <span>De</span>
+                            <input
+                                type="number"
+                                id="minimum"
+                                name="minimum"
+                                step="1"
+                                required
+                            >
+                        </label>
+
+                        <label for="maximum">
+                            <span>Até</span>
+                            <input
+                                type="number"
+                                id="maximum"
+                                name="maximum"
+                                step="1"
+                                required
+                            >
+                        </label>
+                    </div>
+
+                    <label id="switch">
                         <input
-                            type="number"
-                            id="quantity"
-                            name="quantity"
-                            min="1"
-                            step="1"
-                            required
+                            type="checkbox"
+                            id="no-repeat"
+                            name="no-repeat"
                         >
+                        <span>Não repetir número</span>
                     </label>
 
-                    <label for="minimum">
-                        <span>De</span>
+                    <button type="submit" id="draw">
+                        <span class="draw-content">
+                            Sortear
+                            <img src="assets/Icons/Frame-1.svg" alt="">
+                        </span>
+                    </button>
+                </form>
+            </div>
 
-                        <input
-                            type="number"
-                            id="minimum"
-                            name="minimum"
-                            step="1"
-                            required
-                        >
-                    </label>
+            <div class="result">
+                <h2>Resultado do sorteio</h2>
+                <p class="result-label">1º resultado</p>
 
-                    <label for="maximum">
-                        <span>Até</span>
+                <div class="numbers"></div>
 
-                        <input
-                            type="number"
-                            id="maximum"
-                            name="maximum"
-                            step="1"
-                            required
-                        >
-                    </label>
-                </div>
-
-                <label id="switch">
-                    <input
-                        type="checkbox"
-                        id="no-repeat"
-                        name="no-repeat"
-                    >
-
-                    <span>Não repetir número</span>
-                </label>
-
-                <button type="submit" id="draw">
-                    <span class="draw-content">
-                        Sortear
-                        <img
-                            src="assets/Icons/Frame-1.svg"
-                            alt=""
-                        >
-                    </span>
+                <button type="button" id="draw-again">
+                    Sortear novamente
                 </button>
-            </form>
+            </div>
         </aside>
     </main>
 

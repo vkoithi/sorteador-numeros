@@ -1,42 +1,94 @@
+
+/*ELEMENTOS DO FORMULÁRIO*/
+
+const form = document.querySelector("form")
+const formContent = document.querySelector(".form-content")
+
 const quantity = document.querySelector("#quantity")
 const minimum = document.querySelector("#minimum")
 const maximum = document.querySelector("#maximum")
 const noRepeat = document.querySelector("#no-repeat")
 
-const form = document.querySelector("form")
-const draw = document.getElementById("draw")
+/*ELEMENTOS DO RESULTADO*/
+
+const result = document.querySelector(".result")
+const resultLabel = document.querySelector(".result-label")
+const numbers = document.querySelector(".numbers")
+const drawAgain = document.querySelector("#draw-again")
+
+/*CONTADOR DE SORTEIOS*/
+
+let drawCount = 0
+
+/*REALIZA SORTEIO*/
 
 form.onsubmit = (event) => {
     event.preventDefault()
 
+    // Obtém os valores informados pelo usuário
     const quantityValue = Number(quantity.value)
-    const minimumInput = Number(minimum.value)
-    const maximumInput = Number(maximum.value)
+    const minimumValue = Number(minimum.value)
+    const maximumValue = Number(maximum.value)
 
-    if (minimumInput > maximumInput) {
-        alert("Não foi possível fazer o sorteio")
-        return
-    } 
-
-    const availableNumbers = maximumInput - minimumInput + 1
-
-    if (quantityValue > availableNumbers && noRepeat.checked) {
-        alert("Não há número suficientes para sortear sem repetição")
+    // Verifica se o intervalo é válido
+    if (minimumValue > maximumValue) {
+        alert("O número mínimo não pode ser maior que o máximo.")
         return
     }
 
-    const drawnNumbers = [] 
-    
-    while (drawnNumbers.length < quantityValue) { 
-        const randomNumber = Math.floor(Math.random() * availableNumbers) + minimumInput 
-        
-        if (noRepeat.checked && drawnNumbers.includes(randomNumber)) { 
-            continue 
-        } 
+    // Calcula quantos números existem no intervalo
+    const availableNumbers = maximumValue - minimumValue + 1
 
-        drawnNumbers.push(randomNumber) 
-        console.log(drawnNumbers)
+    // Verifica se é possível sortear sem repetição
+    if (noRepeat.checked && quantityValue > availableNumbers) {
+        alert("Não há números suficientes para sortear sem repetição.")
+        return
     }
 
-    draw.classList.add("drawing")
+    /*GERAR OS NÚMEROS*/
+
+    const drawnNumbers = []
+
+    while (drawnNumbers.length < quantityValue) {
+        const randomNumber =
+            Math.floor(Math.random() * availableNumbers) + minimumValue
+
+        // Ignora números já sorteados quando a repetição está desativada
+        if (noRepeat.checked && drawnNumbers.includes(randomNumber)) {
+            continue
+        }
+
+        drawnNumbers.push(randomNumber)
+    }
+
+    /*ATUALIZAR CONTADOR*/
+
+    drawCount++
+
+    resultLabel.textContent = `${drawCount}º resultado`
+
+    // Limpa os números do sorteio anterior
+    numbers.textContent = ""
+
+    // Cria cada número com um atraso na animação
+    drawnNumbers.forEach((number, index) => {
+        const element = document.createElement("span")
+
+        element.textContent = number
+        element.style.animationDelay = `${index * 700}ms`
+
+        numbers.appendChild(element)
+    })
+
+    // Esconde o formulário e mostra o resultado
+    formContent.classList.add("hide")
+    result.classList.add("show")
 }
+
+/*SORTEAR NOVAMENTE*/
+
+drawAgain.addEventListener("click", () => {
+    // Esconde o resultado e mostra o formulário
+    result.classList.remove("show")
+    formContent.classList.remove("hide")
+})
